@@ -3,6 +3,7 @@
 <url> <loc>https://fflamingo.org/help</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/en/help" /> </url>
 <url> <loc>https://fflamingo.org/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/en/index" /> </url>
 <url> <loc>https://fflamingo.org/versions</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/en/versions" /> </url>
+<url> <loc>https://fflamingo.org/docs/authorization/authorization</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/docs/authorization/authorization" /> </url>
 <url> <loc>https://fflamingo.org/docs/intro/installation</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/docs/intro/installation" /> </url>
 <url> <loc>https://fflamingo.org/docs/main</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://fflamingo.org/docs/main" /> </url>
 </urlset>
