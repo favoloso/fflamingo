@@ -12,7 +12,7 @@ const siteConfig = {
   title: 'fflamingo', // Title for your website.
   tagline:
     'Framework per lo sviluppo di applicazioni web basato su React e GraphQL',
-  url: 'https://fflamingo.favoloso.team', // Your website URL
+  url: 'https://fflamingo.org', // Your website URL
   baseUrl: '/',
 
   projectName: 'fflamingo',
