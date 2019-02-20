@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Installazione · fflamingo</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Per installare le librerie di &lt;strong&gt;fflamingo&lt;/strong&gt; vedere la documentazione delle singole librerie.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Installazione · fflamingo"/><meta property="og:type" content="website"/><meta property="og:url" content="https://favoloso.github.io/fflamingo/index.html"/><meta property="og:description" content="&lt;p&gt;Per installare le librerie di &lt;strong&gt;fflamingo&lt;/strong&gt; vedere la documentazione delle singole librerie.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/fflamingo/undefined"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/fflamingo/css/main.css"/><script src="/fflamingo/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/fflamingo/"><img class="logo" src="/fflamingo/img/fflamingo-logo-white-short.svg" alt="fflamingo"/><h2 class="headerTitleWithLogo">fflamingo</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/fflamingo/docs/main" target="_self">Documentazione</a></li><li class=""><a href="/fflamingo/help" target="_self">Aiuto</a></li><li class=""><a target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Introduzione</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduzione</h3><ul class=""><li class="navListItem"><a class="navItem" href="/fflamingo/docs/main">Introduzione</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/fflamingo/docs/intro/installation">Installazione</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Installazione</h1></header><article><div><span><p>Per installare le librerie di <strong>fflamingo</strong> vedere la documentazione delle singole librerie.</p>
+<pre><code class="hljs css language-sh">yarn install @fflamingo/&lt;libreria&gt;
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/fflamingo/docs/main"><span class="arrow-prev">← </span><span>Introduzione</span></a><a class="docs-next button" href="/fflamingo/docs/doc2"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/fflamingo/" class="nav-home"><img src="/fflamingo/img/fflamingo-logo-white-short.svg" alt="fflamingo" width="66" height="58"/></a><div><h5>Docs</h5><a href="/fflamingo/docs/en/main.html">Introduzione</a></div><div><h5>Community</h5><a href="/fflamingo/en/users.html">User Showcase</a></div><div><h5>More</h5><a href="/fflamingo/blog">Blog</a><a href="https://github.com/favoloso/fflamingo">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/favoloso/fflamingo/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Favoloso Team Srl</section></footer></div><script src="http://localhost:undefined/livereload.js"></script></body></html>
