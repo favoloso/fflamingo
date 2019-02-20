@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/auth-roles" },
+    { "path": "packages/ui" }
+  ]
+}
