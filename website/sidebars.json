@@ -1,7 +1,9 @@
 {
   "docs": {
     "Introduzione": ["main", "intro/installation"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"]
+    "Server": [
+      "authorization/authorization"
+    ],
+    "Client": ["doc3"]
   }
 }

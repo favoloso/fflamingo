@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Framework per lo sviluppo di applicazioni web basato su React e GraphQL",
     "docs": {
+      "authorization/authorization": {
+        "title": "Autorizzazione",
+        "sidebar_label": "Autorizzazione"
+      },
       "intro/installation": {
         "title": "Installazione",
         "sidebar_label": "Installazione"
@@ -21,8 +25,8 @@
     },
     "categories": {
       "Introduzione": "Introduzione",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "Server": "Server",
+      "Client": "Client"
     }
   },
   "pages-strings": {

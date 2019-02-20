@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+var Prism = require('prismjs');
+var loadLanguages = require('prismjs/components/');
+loadLanguages(['tsx']);
+
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
 
@@ -40,8 +44,10 @@ const siteConfig = {
 
   copyright: `Copyright © ${new Date().getFullYear()} Favoloso Team Srl`,
 
+  usePrism: true,
   highlight: {
-    theme: 'default'
+    theme: 'default',
+    defaultLang: 'javascript'
   },
 
   scripts: ['https://buttons.github.io/buttons.js'],
