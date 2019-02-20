@@ -1,0 +1,7 @@
+{
+  "docs": {
+    "Introduzione": ["main", "intro/installation"],
+    "First Category": ["doc2"],
+    "Second Category": ["doc3"]
+  }
+}
