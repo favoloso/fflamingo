@@ -14,6 +14,7 @@ const siteConfig = {
     'Framework per lo sviluppo di applicazioni web basato su React e GraphQL',
   url: 'https://fflamingo.org', // Your website URL
   baseUrl: '/',
+  cname: 'fflamingo.org',
 
   projectName: 'fflamingo',
   organizationName: 'favoloso',
