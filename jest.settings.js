@@ -14,7 +14,10 @@ module.exports = {
         `<rootDir>/packages/${name}/src/**/*.{ts,js}?(x)`,
         `!<rootDir>/packages/${name}/src/**/*.{spec,test}.{ts,js}?(x)`
       ],
-      testMatch: [`<rootDir>/packages/${name}/**/?(*.)+(spec|test).[jt]s?(x)`]
+      testMatch: [`<rootDir>/packages/${name}/**/?(*.)+(spec|test).[jt]s?(x)`],
+      moduleNameMapper: {
+        '^src/(.*)$': `<rootDir>/packages/${name}/src/$1`
+      }
     };
     // setupFilesAfterEnv: ['jest-extended']
   }

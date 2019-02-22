@@ -19,9 +19,10 @@ export class AuthorizationEnsure {
 
   domain(domain: AuthDomain) {
     this.currentDomain = domain;
+    return this;
   }
 
-  resolvePermissions(domain: AuthDomain | undefined) {
+  private resolvePermissions(domain: AuthDomain | undefined) {
     // Tutti i domini "padre" del dominio corrente permettono
     // l'accesso al dominio corrente.
     const domainsChain = domain ? this.datasource.findDomainsChain(domain) : [];
@@ -49,6 +50,6 @@ export class AuthorizationEnsure {
     const grant = permissions.find(p =>
       p.grants(this.user, permission, resource)
     );
-    return grant;
+    return grant != null;
   }
 }
