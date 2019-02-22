@@ -49,11 +49,31 @@ assegnabili ad ogni ruolo.
 ## Controllo dei Permessi
 
 Nei resolver GraphQL è possibile controllare i permessi necessari utilizzando il metodo `check`.
+In caso di errore verrà lanciato un `ForbiddenError`
+
+### Per Risorsa
 
 ```tsx
-await ctx.auth.check(auth => {
-  await auth.can('edit-permission:any');
-});
+await ctx.auth.check(auth =>
+  await auth.can('handle-task', task)
+);
 ```
 
-In caso di errore verrà lanciato un `ForbiddenError`
+### Per Dominio
+
+```tsx
+await ctx.auth.check(auth => 
+  await auth.domain(project).can('handle-task')
+);
+```
+
+### Per costruire una query
+
+```tsx
+const domains = ctx.auth.getEnabledDomains('handle-task')
+// Restituisce
+[ 
+  { domain: 'Project A', id: 123, ... },
+  { domain: 'Project C', id: 134, ... }
+]
+```
