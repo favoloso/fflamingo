@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/node:lts-alpine
+      - image: circleci/node:10.14.1
         environment:
           NODE_ENV: test
     steps:

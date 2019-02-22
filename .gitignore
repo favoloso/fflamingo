@@ -6,9 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Tests
-coverage/
-
 # Docusauros
 website/build/
 
@@ -26,6 +23,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+/junit.xml
 
 # nyc test coverage
 .nyc_output
