@@ -4,6 +4,7 @@ Framework per lo sviluppo di applicazioni web basato su React e GraphQL
 
 ![CircleCI branch](https://img.shields.io/circleci/project/github/favoloso/fflamingo/master.svg)
 ![Codecov](https://img.shields.io/codecov/c/github/favoloso/fflamingo.svg)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/favoloso/fflamingo.svg)
 
 ## Sviluppo
 
