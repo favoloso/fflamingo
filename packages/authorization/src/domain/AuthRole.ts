@@ -1,4 +1,3 @@
-import { Permission } from 'src/permissions/Permission';
 import { ScopedPermission } from 'src/permissions/ScopedPermission';
 
 export interface AuthRole {
