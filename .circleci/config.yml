@@ -42,4 +42,4 @@ jobs:
 
       # CodeCov enabled orb
       - codecov/upload:
-          file: ./coverage/clover.xml
+          file: coverage/clover.xml
