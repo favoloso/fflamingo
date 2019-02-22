@@ -40,6 +40,6 @@ jobs:
       - store_artifacts:
           path: reports/junit
 
-      # CodeCov
+      # CodeCov enabled orb
       - codecov/upload:
           file: ./coverage/clover.xml
