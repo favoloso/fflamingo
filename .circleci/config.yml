@@ -1,8 +1,6 @@
 # Node CircleCI 2.0 configuration
 #
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.4
 jobs:
   build:
     docker:
@@ -41,5 +39,4 @@ jobs:
           path: reports/junit
 
       # CodeCov enabled orb
-      - codecov/upload:
-          file: coverage/clover.xml
+      - run: ./node_modules/.bin/codecov
