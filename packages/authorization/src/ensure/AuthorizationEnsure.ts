@@ -9,11 +9,13 @@ import { consolidateScopedPermissions } from 'src/permissions/ScopedPermission';
 import { AuthUser } from 'src/domain/AuthUser';
 
 export class AuthorizationEnsure {
-  constructor(
-    private user: AuthUser,
-    private bindings: AuthRoleBinding[],
-    private datasource: AuthorizationDatasource
-  ) {}
+  user: AuthUser;
+  bindings: AuthRoleBinding[];
+
+  constructor(private datasource: AuthorizationDatasource) {
+    this.user = datasource.user();
+    this.bindings = datasource.bindings();
+  }
 
   private currentDomain: AuthDomain | undefined = undefined;
 
@@ -22,10 +24,12 @@ export class AuthorizationEnsure {
     return this;
   }
 
-  private resolvePermissions(domain: AuthDomain | undefined) {
+  private async resolvePermissions(domain: AuthDomain | undefined) {
     // Tutti i domini "padre" del dominio corrente permettono
     // l'accesso al dominio corrente.
-    const domainsChain = domain ? this.datasource.findDomainsChain(domain) : [];
+    const domainsChain = domain
+      ? await this.datasource.findDomainsChain(domain)
+      : [];
     const domainsChainIds = domainsChain.map(d => d.getAuthId());
 
     const permissions = this.bindings
@@ -43,9 +47,9 @@ export class AuthorizationEnsure {
    * Controlla che il permesso fornito sia disponibile per i role
    * bindings correnti.
    */
-  can(permission: string, resource?: AuthResource) {
+  async can(permission: string, resource?: AuthResource) {
     const domain = resource == null ? this.currentDomain : resource.getDomain();
-    const permissions = this.resolvePermissions(domain);
+    const permissions = await this.resolvePermissions(domain);
 
     const grant = permissions.find(p =>
       p.grants(this.user, permission, resource)
