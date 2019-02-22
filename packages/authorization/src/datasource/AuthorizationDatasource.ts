@@ -1,6 +1,6 @@
 import { AuthDomain } from 'src/domain/AuthDomain';
-import { AuthUser } from 'src/domain/AuthUser';
 import { AuthRoleBinding } from 'src/domain/AuthRoleBinding';
+import { AuthUser } from 'src/domain/AuthUser';
 
 /**
  * Repository che fornisce l'accesso.
