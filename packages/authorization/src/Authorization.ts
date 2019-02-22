@@ -1,4 +1,7 @@
 import { AuthorizationDatasource } from './datasource/AuthorizationDatasource';
+import { AuthorizationEnsure } from './ensure/AuthorizationEnsure';
+
+type EnsureFn = (auth: AuthorizationEnsure) => boolean;
 
 /**
  * Gestisce l'autorizzazione
@@ -6,5 +9,11 @@ import { AuthorizationDatasource } from './datasource/AuthorizationDatasource';
 export class Authorization {
   constructor(private datasource: AuthorizationDatasource) {}
 
-  ensure() {}
+  ensure(fn: EnsureFn) {
+    const ensurer = new AuthorizationEnsure(this.datasource);
+    const allowed = fn(ensurer);
+    if (!allowed) {
+      throw new Error('Forbidden');
+    }
+  }
 }
