@@ -1,4 +1,4 @@
 module.exports = {
   projects: ['<rootDir>/packages/*'],
-  testPathIgnorePatterns: ['**/dist/*']
+  testPathIgnorePatterns: ['**/lib/*']
 };
