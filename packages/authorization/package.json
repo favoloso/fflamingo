@@ -1,5 +1,5 @@
 {
-  "name": "@fflamingo/auth-roles",
+  "name": "@fflamingo/authorization",
   "version": "0.0.0",
   "description": "Gestione dei ruoli per un server GraphQL",
   "main": "lib/index.js",
@@ -10,9 +10,18 @@
     "dev": "rollup -c -w",
     "build": "yarn build:lib && yarn build:types",
     "build:lib": "rollup -c",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly",
+    "test": "jest"
   },
   "peerDependencies": {
     "typeorm": "^0.2.13"
+  },
+  "devDependencies": {
+    "typeorm": "^0.2.13"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.1",
+    "@types/lodash": "^4.14.121",
+    "lodash": "^4.17.11"
   }
 }
