@@ -11,6 +11,7 @@
     "build": "yarn build:lib && yarn build:types",
     "build:lib": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
+    "check-types": "tsc --noEmit",
     "test": "jest"
   },
   "peerDependencies": {

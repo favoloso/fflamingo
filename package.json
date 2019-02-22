@@ -4,6 +4,7 @@
   "scripts": {
     "test": "jest",
     "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
+    "check-types": "lerna run --parallel check-types",
     "build": "lerna run --parallel build"
   },
   "devDependencies": {
