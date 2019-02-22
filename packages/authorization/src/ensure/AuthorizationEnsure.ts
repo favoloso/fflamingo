@@ -1,5 +1,4 @@
 import { AuthDomain } from 'src/domain/AuthDomain';
-import { Permission } from 'src/permissions/Permission';
 import { AuthResource } from 'src/domain/AuthResource';
 import { AuthRoleBinding } from 'src/domain/AuthRoleBinding';
 import { AuthorizationDatasource } from 'src/datasource/AuthorizationDatasource';
@@ -7,12 +6,16 @@ import flatten from 'lodash/flatten';
 import { getScopedPermissions } from 'src/domain/AuthRole';
 import { consolidateScopedPermissions } from 'src/permissions/ScopedPermission';
 import { AuthUser } from 'src/domain/AuthUser';
+import { Permissions } from 'src/permissions/Permission';
 
-export class AuthorizationEnsure {
+export class AuthorizationEnsure<T extends string> {
   user: AuthUser;
   bindings: AuthRoleBinding[];
 
-  constructor(private datasource: AuthorizationDatasource) {
+  constructor(
+    private permissions: Permissions<T>,
+    private datasource: AuthorizationDatasource
+  ) {
     this.user = datasource.user();
     this.bindings = datasource.bindings();
   }
@@ -47,7 +50,11 @@ export class AuthorizationEnsure {
    * Controlla che il permesso fornito sia disponibile per i role
    * bindings correnti.
    */
-  async can(permission: string, resource?: AuthResource) {
+  async can(permission: T, resource?: AuthResource) {
+    if (!this.permissions.includes(permission)) {
+      throw new Error('unrecognized-permission');
+    }
+
     const domain = resource == null ? this.currentDomain : resource.getDomain();
     const permissions = await this.resolvePermissions(domain);
 

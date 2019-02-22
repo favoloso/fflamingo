@@ -1,13 +1,8 @@
+export type Permissions<T extends string> = T[];
+
 /**
- * Un permesso autorizzativo permette di accedere a un insieme di operazioni
- * che lo richiedono.
+ * Crea un permesso con il nome specificato e ne mantiene il tipo (TS)
  */
-export class Permission<T extends string> {
-  static Separator = ':';
-
-  constructor(public name: T) {}
-
-  static create<T extends string>(name: T) {
-    return new this(name);
-  }
+export function permission<T extends string>(name: T) {
+  return name;
 }

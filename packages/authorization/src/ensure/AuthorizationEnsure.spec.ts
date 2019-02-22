@@ -1,9 +1,11 @@
 import { AuthorizationEnsure } from './AuthorizationEnsure';
+import { permission } from 'src/permissions/Permission';
 
 describe('AuthorizationEnsure', () => {
   const user = { getId: () => 12, getBindings: () => [] };
 
   describe('riconoscimento dei permessi', () => {
+    const permissions = [permission('post-read'), permission('post-edit')];
     const domain = { getAuthId: () => 20 };
     const role = {
       getPermissions: () => ['post-read:any', 'post-edit:own']
@@ -14,7 +16,7 @@ describe('AuthorizationEnsure', () => {
       bindings: () => bindings,
       findDomainsChain: (d: any) => [d]
     };
-    const ensurer = new AuthorizationEnsure(datasource);
+    const ensurer = new AuthorizationEnsure(permissions, datasource);
 
     test('deve garantire un permesso `any`', () => {
       expect(ensurer.domain(domain).can('post-read')).resolves.toBe(true);
@@ -40,6 +42,10 @@ describe('AuthorizationEnsure', () => {
           getDomain: () => domain
         })
       ).resolves.toBe(false);
+    });
+
+    test('deve rifituare un permesso se non è stato definito', () => {
+      expect(ensurer.can('post-delete' as any)).rejects.not.toBeNull();
     });
   });
 });
