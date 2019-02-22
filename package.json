@@ -5,6 +5,7 @@
     "test": "jest",
     "test:ci": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "check-types": "lerna run --parallel check-types",
+    "lint": "tslint -e '**/*.d.ts' -e '**/*.spec.ts{,x}' 'packages/**/*.ts{,x}'",
     "build": "lerna run --parallel build"
   },
   "devDependencies": {
@@ -28,6 +29,9 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.3.3"
   },
   "workspaces": [
