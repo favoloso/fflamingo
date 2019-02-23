@@ -9,6 +9,10 @@
         "title": "Autorizzazione",
         "sidebar_label": "Autorizzazione"
       },
+      "authorization/org": {
+        "title": "Organigramma",
+        "sidebar_label": "Organigramma"
+      },
       "intro/installation": {
         "title": "Installazione",
         "sidebar_label": "Installazione"

@@ -2,7 +2,11 @@
   "docs": {
     "Introduzione": ["main", "intro/installation"],
     "Server": [
-      "authorization/authorization"
+      {
+        "type": "subcategory",
+        "label": "Autorizzazione",
+        "ids": ["authorization/authorization", "authorization/org"]
+      }
     ],
     "Client": ["doc3"]
   }
