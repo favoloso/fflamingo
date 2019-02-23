@@ -6,6 +6,9 @@
   "module": "lib/index.esm.js",
   "author": "Leonardo Ascione <leonardo@favoloso.team>",
   "license": "MIT",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "dev": "rollup -c -w",
     "build": "yarn build:lib && yarn build:types",
