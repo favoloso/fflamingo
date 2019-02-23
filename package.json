@@ -37,7 +37,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": "> 0.25%",
   "version": "0.0.1",
   "description": "Framework per lo sviluppo di applicazioni web basato su React e GraphQL",
   "main": "index.js",

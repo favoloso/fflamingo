@@ -15,14 +15,6 @@ E' necessario `typeorm` installato.
 $ yarn add @fflamingo/authorization
 ```
 
-## Concetti
-
-### Organigramma
-
-- Le risorse sono divise in **Domini** (`AuthDomain`).
-- Ogni dominio può avere più **figli**.
-- Un Ruolo assegnato ad un utente per un _Dominio_ (`AuthRoleBinding`) permette di avere accesso a quel dominio a tutti i domini figli.
-
 ## Preparazione
 
 ### Permessi disponibili
