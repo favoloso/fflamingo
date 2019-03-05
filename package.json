@@ -6,7 +6,8 @@
     "test:ci": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "check-types": "lerna run --parallel check-types",
     "lint": "tslint -e '**/*.d.ts' -e '**/*.spec.ts{,x}' 'packages/**/*.ts{,x}'",
-    "build": "lerna run --parallel build"
+    "build": "lerna run --parallel build",
+    "release": "yarn test && yarn check-types && yarn build && lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -18,8 +19,10 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@favoloso/conventional-changelog-emoji": "^0.9.0",
     "@types/jest": "^24.0.6",
     "codecov": "^3.2.0",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
     "jest-junit": "^6.3.0",
     "lerna": "^3.6.0",
@@ -38,6 +41,14 @@
     "packages/*"
   ],
   "browserslist": "> 0.25%",
+  "favolosoEmoji": {
+    "language": "it"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "emoji-commit-lint"
+    }
+  },
   "version": "0.0.1",
   "description": "Framework per lo sviluppo di applicazioni web basato su React e GraphQL",
   "main": "index.js",

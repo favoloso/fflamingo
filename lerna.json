@@ -1,9 +1,17 @@
 {
-  "packages": ["packages/*"],
-  "version": "independent",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
   "command": {
     "publish": {
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "githubRelease": true,
+      "message": "🔖 %s",
+      "conventionalCommits": true,
+      "changelogPreset": "@favoloso/emoji"
     }
-  }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }
