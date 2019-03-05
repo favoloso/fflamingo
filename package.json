@@ -5,7 +5,8 @@
     "test": "jest",
     "test:ci": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "check-types": "lerna run --parallel check-types",
-    "build": "lerna run --parallel build"
+    "build": "lerna run --parallel build",
+    "release": "yarn test && yarn check-types && yarn build && lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
