@@ -35,12 +35,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "favoloso-emoji": {
-    "fixAliasedEmoji": true
+  "favolosoEmoji": {
+    "language": "it"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "favoloso-emoji-fix-commit"
+      "commit-msg": "emoji-commit-lint"
     }
   },
   "browserslist": "> 0.25%, not dead",
