@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "command": {
     "publish": {
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "message": "🔖 %s",
+      "conventionalCommits": true,
+      "changelogPreset": "@favoloso/emoji"
     }
   }
 }
