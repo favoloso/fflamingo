@@ -4,6 +4,7 @@
   "command": {
     "publish": {
       "allowBranch": "master",
+      "githubRelease": true,
       "message": "🔖 %s",
       "conventionalCommits": true,
       "changelogPreset": "@favoloso/emoji"
