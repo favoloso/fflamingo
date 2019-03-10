@@ -19,7 +19,16 @@ module.exports = api => {
       ['@babel/plugin-proposal-decorators', { legacy: true }],
       ['@babel/plugin-proposal-class-properties', { loose: true }],
       '@babel/plugin-proposal-object-rest-spread',
-      '@babel/plugin-syntax-dynamic-import'
+      '@babel/plugin-syntax-dynamic-import',
+      [
+        'babel-plugin-module-resolver',
+        {
+          cwd: 'packagejson',
+          alias: {
+            '^src/(.+)': './src/\\1'
+          }
+        }
+      ]
     ],
     babelrcRoots: [
       // Keep the root as a root

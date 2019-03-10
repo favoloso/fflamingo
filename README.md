@@ -11,7 +11,15 @@ Framework per lo sviluppo di applicazioni web basato su React e GraphQL
 
 ## Sviluppo
 
+- `yarn build` per compilare i sorgenti di tutte le librerie
+- `yarn lint` per verificare il codice con TSLint
+- `yarn check-types` per verificare che il codice TypeScript sia corretto
+- `yarn test` per eseguire i test con _Jest_
+
 ## Documentazione
+
+Per visualizzare la documentazione in locale, posizionarsi nella cartella `cd ./website`.
+Eseguire quindi il comando `yarn start`.
 
 Per pubblicare la documentazione, posizionarsi in `./website` ed eseguire:
 

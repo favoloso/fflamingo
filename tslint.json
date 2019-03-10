@@ -25,7 +25,8 @@
     "object-literal-sort-keys": false,
     "interface-over-type-literal": {
       "severity": "warn"
-    }
+    },
+    "no-shadowed-variable": false
   },
   "rulesDirectory": []
 }
