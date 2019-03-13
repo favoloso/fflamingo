@@ -1,6 +1,7 @@
 {
   "docs": {
     "Introduzione": ["main", "intro/installation"],
+    "CLI": ["cli/cli"],
     "Server": [
       {
         "type": "subcategory",

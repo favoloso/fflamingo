@@ -13,6 +13,10 @@
         "title": "Organigramma",
         "sidebar_label": "Organigramma"
       },
+      "cli/cli": {
+        "title": "CLI",
+        "sidebar_label": "CLI"
+      },
       "intro/installation": {
         "title": "Installazione",
         "sidebar_label": "Installazione"
@@ -29,6 +33,7 @@
     },
     "categories": {
       "Introduzione": "Introduzione",
+      "CLI": "CLI",
       "Server": "Server",
       "Client": "Client"
     }

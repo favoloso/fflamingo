@@ -16,6 +16,13 @@ Framework per lo sviluppo di applicazioni web basato su React e GraphQL
 - `yarn check-types` per verificare che il codice TypeScript sia corretto
 - `yarn test` per eseguire i test con _Jest_
 
+### Note sui Test
+
+Al momento l'uso di `yarn test --watch` [non è supportato](https://github.com/facebook/jest/issues/4883) all'interno dei
+monorepo che utilizzano il `moduleNameMapper`.
+
+Come soluzione è **necessario** utilizzare `yarn test --watchAll`
+
 ## Documentazione
 
 Per visualizzare la documentazione in locale, posizionarsi nella cartella `cd ./website`.
