@@ -50,6 +50,11 @@ const siteConfig = {
     defaultLang: 'javascript'
   },
 
+  markdownPlugins: [
+    // highlight callouts
+    require('remarkable-admonitions')({ icon: 'svg-inline' })
+  ],
+
   scripts: ['https://buttons.github.io/buttons.js'],
 
   // On page navigation for the current documentation page.

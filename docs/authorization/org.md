@@ -12,4 +12,6 @@ La struttura dell'organigramma è divisa nel seguente modo:
 - Ad ogni **Ruolo** sono associati un insieme di **Permessi**.
 - Un Ruolo assegnato ad un utente per un _Dominio_ (`AuthRoleBinding`) permette di avere accesso a quel dominio a tutti i domini figli.
 
-> In caso di Ruoli multipli per una catena di domini, i permessi vengono calcolati considerando quelli **maggiormente permessivi**.
+:::important
+In caso di Ruoli multipli per una catena di domini, i permessi vengono calcolati considerando quelli **maggiormente permessivi**.
+:::

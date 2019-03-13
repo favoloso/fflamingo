@@ -23,7 +23,9 @@ Il modulo di autorizzazione necessita dell'elenco dei permessi disponibili,
 per fornire la validazione a compile-time (_tramite TypeScript_) e a runtime dei
 permessi.
 
-> ⚠️ Non è possibile utilizzare il carattere `:` all'interno delle stringhe dei permessi.
+:::warning
+Non è possibile utilizzare il carattere `:` all'interno delle stringhe dei permessi.
+:::
 
 ```tsx
 import { permission } from '@fflamingo/authorization';
@@ -90,7 +92,9 @@ await ctx.auth.check(auth => await auth.domain(project).can('todo.read'));
 
 ### Per costruire una query
 
-> 🚧 TODO: Al momento non è implementato.
+:::note Todo
+Al momento non è implementato.
+:::
 
 ```tsx
 const domains = ctx.auth.getEnabledDomains('handle-task')
