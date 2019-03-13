@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-require('yargs').commandDir('../lib/commands').argv;
+require('yargs')
+  .scriptName('fflamingo')
+  .commandDir('../lib/commands').argv;
