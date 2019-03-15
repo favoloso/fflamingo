@@ -5,8 +5,8 @@ import { runGenerator } from 'src/runGenerator';
 const packageCommand = command({
   command: 'package <dir>',
   describe: 'Crea un package secondo la struttura di fflamingo',
-  builder: (args: yargs.Argv<{}>) =>
-    args
+  builder: (args: yargs.Argv<{}>) => {
+    return args
       .positional('dir', {
         describe: 'La cartella in cui creare il package',
         type: 'string',
@@ -23,7 +23,8 @@ const packageCommand = command({
         choices: ['rollup', 'babel'],
         default: 'rollup',
         describe: 'compilazione di bundle con rollup o babel'
-      }),
+      });
+  },
   handler: async args => {
     return runGenerator('package', args);
   }
@@ -31,4 +32,4 @@ const packageCommand = command({
 
 export type PackageCommandArguments = CommandArguments<typeof packageCommand>;
 
-module.exports = packageCommand;
+export default packageCommand;

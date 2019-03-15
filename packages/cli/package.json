@@ -5,8 +5,8 @@
   "author": "Leonardo Ascione <leonardo@favoloso.team>",
   "license": "MIT",
   "scripts": {
-    "dev": "babel src --watch --out-dir lib --copy-files --root-mode upward --extensions '.ts,.tsx'",
-    "build": "babel src --out-dir lib --copy-files --root-mode upward --extensions '.ts,.tsx'",
+    "dev": "babel src --watch --out-dir lib --root-mode upward --extensions '.ts,.tsx' --ignore '**/*.spec.ts'",
+    "build": "babel src --out-dir lib --root-mode upward --extensions '.ts,.tsx' --ignore '**/*.spec.ts'",
     "check-types": "tsc --noEmit",
     "test": "jest"
   },
