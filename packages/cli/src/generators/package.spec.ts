@@ -42,4 +42,31 @@ describe('package generator', () => {
         expect(fs.existsSync(path.join(dir, 'rollup.config.js'))).toBe(false);
       });
   });
+
+  test('deve riconoscere una struttura monorepo', () => {
+    return helpers
+      .run(path.join(__dirname, './package'))
+      .inTmpDir(fp => {
+        fs.writeFileSync(
+          path.join(fp, 'lerna.json'),
+          JSON.stringify({ version: '0.0.1' }),
+          { encoding: 'utf8' }
+        );
+      })
+      .withOptions({ dir: '.' })
+      .withPrompts({ name: '@monorepo/test', author: 'LA', bundle: 'rollup' })
+      .then(dir => {
+        const pkg = JSON.parse(
+          fs.readFileSync(path.join(dir, 'package.json'), 'utf8')
+        );
+        expect(pkg.scripts.dev).toMatchInlineSnapshot(`"rollup -c -w"`);
+        expect(fs.existsSync(path.join(dir, 'rollup.config.js'))).toBe(true);
+
+        const rollup = fs.readFileSync(
+          path.join(dir, 'rollup.config.js'),
+          'utf8'
+        );
+        expect(rollup).toMatch(/rootMode\: 'upward'/);
+      });
+  });
 });

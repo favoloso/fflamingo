@@ -15,7 +15,6 @@ export function testCommandWith<T>(command: yargs.Argv<T>, args: string) {
     command.parse(
       args,
       (err: Error | undefined, argv: yargs.Arguments<T>, output: any) => {
-        if (err) return reject(err);
         resolve({ output, argv });
       }
     );

@@ -1,5 +1,5 @@
 import yargs from 'yargs';
-import { testCommandWith } from '../../../test/testCommandWith';
+import { testCommandWith } from '../../test-utils/testCommandWith';
 import { runGenerator } from 'src/runGenerator';
 
 jest.mock('../../runGenerator', () => ({
