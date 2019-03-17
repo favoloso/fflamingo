@@ -1,8 +1,13 @@
 {
   "docs": {
     "Introduzione": ["main", "intro/installation"],
+    "CLI": ["cli/cli"],
     "Server": [
-      "authorization/authorization"
+      {
+        "type": "subcategory",
+        "label": "Autorizzazione",
+        "ids": ["authorization/authorization", "authorization/org"]
+      }
     ],
     "Client": ["doc3"]
   }

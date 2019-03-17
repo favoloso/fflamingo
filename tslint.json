@@ -1,0 +1,33 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier", "tslint-react"],
+  "jsRules": {},
+  "rules": {
+    "member-access": false,
+    "interface-name": false,
+    "ordered-imports": false,
+    "member-ordering": false,
+    "curly": [true, "ignore-same-line"],
+    "no-empty-interface": false,
+    "no-import-side-effect": false,
+    "no-non-null-assertion": false,
+    "no-var-requires": false,
+    "no-empty": false,
+    "prefer-for-of": {
+      "severity": "warn"
+    },
+    "no-console": false,
+    "prefer-conditional-expression": true,
+    "prefer-object-spread": true,
+    "cyclomatic-complexity": {
+      "severity": "warn"
+    },
+    "max-classes-per-file": { "options": 2 },
+    "object-literal-sort-keys": false,
+    "interface-over-type-literal": {
+      "severity": "warn"
+    },
+    "no-shadowed-variable": false
+  },
+  "rulesDirectory": []
+}

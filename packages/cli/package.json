@@ -1,0 +1,42 @@
+{
+  "name": "@fflamingo/cli",
+  "version": "0.0.1",
+  "description": "CLI per fflamingo",
+  "author": "Leonardo Ascione <leonardo@favoloso.team>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel src --watch --out-dir lib --root-mode upward --extensions '.ts,.tsx' --ignore '**/*.spec.ts'",
+    "build": "babel src --out-dir lib --root-mode upward --extensions '.ts,.tsx' --ignore '**/*.spec.ts'",
+    "check-types": "tsc --noEmit",
+    "test": "jest"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "/lib",
+    "/bin",
+    "/templates"
+  ],
+  "types": "lib/index.d.ts",
+  "bin": {
+    "fflamingo": "./bin/fflamingo.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "find-up": "^3.0.0",
+    "mkdirp": "^0.5.1",
+    "yargs": "^13.2.2",
+    "yeoman-environment": "^2.3.4",
+    "yeoman-generator": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/find-up": "^2.1.1",
+    "@types/mkdirp": "^0.5.2",
+    "@types/yargs": "^12.0.9",
+    "@types/yeoman-test": "^2.0.1",
+    "jest": "^24.5.0",
+    "yeoman-test": "^1.9.1"
+  }
+}

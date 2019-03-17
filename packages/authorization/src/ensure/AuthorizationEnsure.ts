@@ -1,5 +1,4 @@
 import { AuthDomain } from 'src/domain/AuthDomain';
-import { Permission } from 'src/permissions/Permission';
 import { AuthResource } from 'src/domain/AuthResource';
 import { AuthRoleBinding } from 'src/domain/AuthRoleBinding';
 import { AuthorizationDatasource } from 'src/datasource/AuthorizationDatasource';
@@ -7,13 +6,19 @@ import flatten from 'lodash/flatten';
 import { getScopedPermissions } from 'src/domain/AuthRole';
 import { consolidateScopedPermissions } from 'src/permissions/ScopedPermission';
 import { AuthUser } from 'src/domain/AuthUser';
+import { Permissions } from 'src/permissions/Permission';
 
-export class AuthorizationEnsure {
+export class AuthorizationEnsure<T extends string> {
+  user: AuthUser;
+  bindings: AuthRoleBinding[];
+
   constructor(
-    private user: AuthUser,
-    private bindings: AuthRoleBinding[],
+    private permissions: Permissions<T>,
     private datasource: AuthorizationDatasource
-  ) {}
+  ) {
+    this.user = datasource.user();
+    this.bindings = datasource.bindings();
+  }
 
   private currentDomain: AuthDomain | undefined = undefined;
 
@@ -22,10 +27,12 @@ export class AuthorizationEnsure {
     return this;
   }
 
-  private resolvePermissions(domain: AuthDomain | undefined) {
+  private async resolvePermissions(domain: AuthDomain | undefined) {
     // Tutti i domini "padre" del dominio corrente permettono
     // l'accesso al dominio corrente.
-    const domainsChain = domain ? this.datasource.findDomainsChain(domain) : [];
+    const domainsChain = domain
+      ? await this.datasource.findDomainsChain(domain)
+      : [];
     const domainsChainIds = domainsChain.map(d => d.getAuthId());
 
     const permissions = this.bindings
@@ -43,9 +50,13 @@ export class AuthorizationEnsure {
    * Controlla che il permesso fornito sia disponibile per i role
    * bindings correnti.
    */
-  can(permission: string, resource?: AuthResource) {
+  async can(permission: T, resource?: AuthResource) {
+    if (!this.permissions.includes(permission)) {
+      throw new Error('unrecognized-permission');
+    }
+
     const domain = resource == null ? this.currentDomain : resource.getDomain();
-    const permissions = this.resolvePermissions(domain);
+    const permissions = await this.resolvePermissions(domain);
 
     const grant = permissions.find(p =>
       p.grants(this.user, permission, resource)

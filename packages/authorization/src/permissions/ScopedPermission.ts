@@ -1,4 +1,3 @@
-import { Permission } from './Permission';
 import {
   PermissionScope,
   PermissionScopes,
@@ -50,21 +49,21 @@ export function consolidateScopedPermissions(permissions: ScopedPermission[]) {
 // return permissions.filter(p => p.scope === 'own' && permissions.some())
 
 export class ScopedPermission {
-  public permission: Permission<string>;
+  public permission: string;
   public scope: PermissionScope;
 
   constructor(descriptor: string) {
     const [permission, scope] = descriptor.split(SCOPE_SEPARATOR);
-    this.permission = Permission.create(permission);
+    this.permission = permission;
     this.scope = getScope(scope);
   }
 
   sameName(other: ScopedPermission) {
-    return other.permission.name === this.permission.name;
+    return other.permission === this.permission;
   }
 
   grants(user: AuthUser, permission: string, resource?: AuthResource) {
-    if (this.permission.name !== permission) return false;
+    if (this.permission !== permission) return false;
 
     switch (this.scope) {
       case 'any':
@@ -76,6 +75,6 @@ export class ScopedPermission {
   }
 
   get descriptor() {
-    return `${this.permission.name}${SCOPE_SEPARATOR}${this.scope}`;
+    return `${this.permission}${SCOPE_SEPARATOR}${this.scope}`;
   }
 }

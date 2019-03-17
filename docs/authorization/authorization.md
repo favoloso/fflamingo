@@ -17,15 +17,49 @@ $ yarn add @fflamingo/authorization
 
 ## Preparazione
 
-### `Datasource`
+### Permessi disponibili
+
+Il modulo di autorizzazione necessita dell'elenco dei permessi disponibili,
+per fornire la validazione a compile-time (_tramite TypeScript_) e a runtime dei
+permessi.
+
+:::warning
+Non è possibile utilizzare il carattere `:` all'interno delle stringhe dei permessi.
+:::
+
+```tsx
+import { permission } from '@fflamingo/authorization';
+const permissions = [
+  permission('todo.read'),
+  // I permessi possono essere divisi per attività...
+  permission('todo.write')
+];
+```
+
+### Datasource
+
+Permette di interfacciare il modulo di autorizzazione con la base dati dell'app.
 
 ```tsx
 const datasource: AuthorizationDatasource = {
-  // ...
+  // Ottiene i domini padre del dominio.
+  findDomainsChain(domain) {
+    return [domain];
+  }
+
+  // Ottiene l'utente corrente
+  user() {
+    return req.user;
+  }
+
+  // Ottiene i RoleBindings per l'utente corrente
+  bindings() {
+    return req.user.bindings;
+  }
 }
 ```
 
-### Associazione al Context di *GraphQL*
+### Associazione al Context di _GraphQL_
 
 ```tsx
 import { Authorization } from '@fflamingo/authorization';
@@ -34,17 +68,10 @@ import { Authorization } from '@fflamingo/authorization';
 {
   ctx: {
     // ...
-    auth: new Authorization()
+    auth: new Authorization(permissions, datasource);
   }
 }
 ```
-
-### Creazione dei Permessi
-
-Per il controllo delle autorizzazioni, è necessario configurare a priori i permessi
-assegnabili ad ogni ruolo.
-
-
 
 ## Controllo dei Permessi
 
@@ -54,25 +81,25 @@ In caso di errore verrà lanciato un `ForbiddenError`
 ### Per Risorsa
 
 ```tsx
-await ctx.auth.check(auth =>
-  await auth.can('handle-task', task)
-);
+await ctx.auth.ensure(auth => await auth.can('todo.write', task));
 ```
 
 ### Per Dominio
 
 ```tsx
-await ctx.auth.check(auth => 
-  await auth.domain(project).can('handle-task')
-);
+await ctx.auth.check(auth => await auth.domain(project).can('todo.read'));
 ```
 
 ### Per costruire una query
 
+:::note Todo
+Al momento non è implementato.
+:::
+
 ```tsx
 const domains = ctx.auth.getEnabledDomains('handle-task')
 // Restituisce
-[ 
+[
   { domain: 'Project A', id: 123, ... },
   { domain: 'Project C', id: 134, ... }
 ]
